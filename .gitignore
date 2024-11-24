@@ -2,5 +2,4 @@ test.C
 test.exe
 Sorting/Radix_Shot.C
 *.exe
-".vscode" 
-.gitignore
+".vscode"   ".vscode" 

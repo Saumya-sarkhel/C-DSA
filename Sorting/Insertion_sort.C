@@ -16,12 +16,11 @@ int main(){
   for(i=1; i<n; i++){
     t=a[i];
     c = i-1;
-    while(c>0 && a[c]>t){
+    while(c>=0 && a[c]>t){
       a[c+1] = a[c];
       c = c-1;
     }
     a[c+1]=t;
-    i++;
   }
   printf("Sorted data in increasing order: ");
   for (i=0; i<n; i++){
