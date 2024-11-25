@@ -10,7 +10,10 @@
     "Linear_search.C": "cpp",
     "Binary_search.C": "cpp",
     "Frequency_of_number.C": "cpp",
-    "Insertion.C": "cpp"
+    "Insertion.C": "cpp",
+    "Insert_node.C": "cpp",
+    "Insert_node_begining.C": "cpp",
+    "Insert_node_End.C": "cpp"
   },
   "launch": {
 

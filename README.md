@@ -10,6 +10,7 @@ The goal is to provide clear, concise, and well-commented code for learning and 
 3. Queue
 4. Searching Algo
 5. Sorting
+6. Linked List
 
 
 I'll be updating more later. 

@@ -3,3 +3,4 @@ test.exe
 Sorting/Radix_Shot.C
 *.exe
 ".vscode"   ".vscode" 
+".vscode/settings.json" 
