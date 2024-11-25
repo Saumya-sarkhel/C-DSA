@@ -1,7 +1,5 @@
-This repository contains implementations of fundamental Data Structures and Algorithms in C programming language. 
-
 # DSA in C
-The goal is to provide clear, concise, and well-commented code for learning and practice.
+This repository contains implementations of fundamental Data Structures and Algorithms in C programming language. The goal is to provide clear, concise, and well-commented code for learning and practice.
 
 ## Data Structures:
 
