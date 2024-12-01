@@ -27,7 +27,7 @@ int main(){
         switch(n){
             case 1: insBeg();
                     break;
-						case 2:  insEnd();
+	    case 2:  insEnd();
                     break;
             case 3: insAfterPos();
                     break;
