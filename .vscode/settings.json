@@ -13,7 +13,13 @@
     "Insertion.C": "cpp",
     "Insert_node.C": "cpp",
     "Insert_node_begining.C": "cpp",
-    "Insert_node_End.C": "cpp"
+    "Insert_node_End.C": "cpp",
+    "Insert_after_position.C": "cpp",
+    "Linked_list_menuDriven.C": "cpp",
+    "MenuDriven_LinkedList.C": "cpp",
+    "Menu_Driven_LinkedList.C": "cpp",
+    "tempCodeRunnerFile.C": "cpp",
+    "Polynomial_Form.C": "cpp"
   },
   "launch": {
 
@@ -23,4 +29,5 @@
 
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": false,
+  "C_Cpp.errorSquiggles": "disabled",
 }
