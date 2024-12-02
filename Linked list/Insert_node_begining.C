@@ -13,23 +13,36 @@ void printlist();
 
 int main(){
     int n, x, i;
-    printf("Enter how many numbers: ");
-    scanf("%d", &n);
-
-    for(i=0; i<n; i++){
-        printf("Enter the number: ");
-        scanf("%d", &x);
-        Insert_beg(x);
-        printlist();
+    while(1){
+      printf("\n1. Insert at the beginingn\n2.Exit\n\n");
+      printf("enter your choice :");
+      scanf("%d",&n);
+      switch(n){
+        case 1: Insert_beg(x);
+                printlist();
+                break;
+        case 2: exit(1);
+        default: printf("Invalid input.");
+      }
     }
 }
 
 void Insert_beg(int x){
     struct node *temp;
     temp = (struct node *)malloc(sizeof(struct node));
-    temp->data = x;
-    temp->next = head;
-    head = temp;
+    printf("Enter data: ");
+    scanf("%d", &temp->data);
+    temp->next = NULL;
+    if(head == NULL){
+        head = temp;
+    }
+    else{
+        temp->next = head;
+        head = temp;
+    }
+    // temp->data = x;
+    // temp->next = head;
+    // head = temp;
 }
 
 void printlist(){

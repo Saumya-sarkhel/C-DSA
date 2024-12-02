@@ -10,17 +10,19 @@ struct node *head = NULL;
 void Insert_end(int);
 void printlist();
 
-
 int main(){
     int n, x, i;
-    printf("Enter how many numbers: ");
-    scanf("%d", &n);
-
-    for(i=0; i<n; i++){
-      printf("Enter the number: ");
-      scanf("%d", &x);
-      Insert_end(x);
-      printlist();
+    while(1){
+      printf("\n1.Insert at the end\n2.Exit\n\n");
+      printf("enter your choice :");
+      scanf("%d",&n);
+      switch(n){
+        case 1: Insert_end(x);
+                printlist();
+                break;
+        case 2: exit(1);
+        default: printf("Invalid input.");
+      }
     }
   return 0;
 }
@@ -28,7 +30,9 @@ int main(){
 void Insert_end(int x){
     struct node *temp, *ptr;
     temp = (struct node *)malloc(sizeof(struct node));
-    temp->data = x; 
+    printf("Enter data: ");
+    scanf("%d", &temp->data);
+    // temp->data = x; 
     temp->next = NULL;
     if(head == NULL){
       head = temp;
