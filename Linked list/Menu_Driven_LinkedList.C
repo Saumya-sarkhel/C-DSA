@@ -25,7 +25,6 @@ void Findmin();
 void Findmax();
 
 int main(){
-<<<<<<< HEAD
   int n;
   while(1){
     printf("\n\n1. Insert At Beg\n2. Insert At End\n3. Insert after Any Position\n4. Display\n5. Delete From End\n6. Delete From Begining\n7. Insert after Any Value\n8. Insert at Any Position\n9. Insert Before Any Position\n10. Delete from any position\n11. Count node\n12. Sort the node\n");
