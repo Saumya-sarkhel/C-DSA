@@ -21,48 +21,54 @@ void count();
 void selection_sort();
 void reverce();
 void LinearSearch();
+void Findmin();
+void Findmax();
 
 int main(){
-    int n;
-    while(1){
-        printf("\n\n1.Insert At Beg\n2.Insert At End\n3.Insert after Any Position\n4.Display\n5.Delete From End\n6.Delete From Begining\n7.Insert after Any Value\n8.Insert at Any Position\n9.Insert Before Any Position\n10.Delete from any position\n11.Count node\n12.Sort the node\n");
-        printf("13.Reverce list\n14.Linear Search\n15.Exit\n");
-        printf("enter your choice :");
-        scanf("%d",&n);
-        switch(n){
-            case 1: insBeg();
-                    break;
-	    case 2:  insEnd();
-                    break;
-            case 3: insAfterPos();
-                    break;
-            case 4: display();
-                    break;
-            case 5: delEnd();
-                    break;
-            case 6: delBeg();
-                    break;
-            case 7: insAfterValue();
-                    break;
-            case 8: insAtPos();
-                    break;
-            case 9: insBeforePos();
-                    break;
-						case 10: DelAnypos();
-										break;
-						case 11: count();
-											break;
-						case 12: selection_sort();
-                      display();
-											break;
-            case 13: reverce();
-                      break;
-            case 14: LinearSearch();
-                      break;
-            case 15: exit(1);
-            default:  printf("Wrong choice..plz re-enter..! ");
-        }
+  int n;
+  while(1){
+    printf("\n\n1. Insert At Beg\n2. Insert At End\n3. Insert after Any Position\n4. Display\n5. Delete From End\n6. Delete From Begining\n7. Insert after Any Value\n8. Insert at Any Position\n9. Insert Before Any Position\n10. Delete from any position\n11. Count node\n12. Sort the node\n");
+    printf("13. Reverce list\n14. Linear Search\n15. Finf Minimun\n16. Find Maximum\n17. Exit\n");
+    printf("enter your choice :");
+    scanf("%d",&n);
+    switch(n){
+      case 1: insBeg();
+              break;
+      case 2: insEnd();
+              break;
+      case 3: insAfterPos();
+              break;
+      case 4: display();
+              break;
+      case 5: delEnd();
+              break;
+      case 6: delBeg();
+              break;
+      case 7: insAfterValue();
+              break;
+      case 8: insAtPos();
+              break;
+      case 9: insBeforePos();
+              break;
+      case 10: DelAnypos();
+              break;
+      case 11: count();
+              break;
+      case 12: selection_sort();
+              display();
+              break;
+      case 13: reverce();
+              break;
+      case 14: LinearSearch();
+              break;
+      case 15: Findmin();
+              break;
+      case 16: Findmax();
+              break;
+      case 17: exit(1);
+      default:  printf("Wrong choice..plz re-enter..! ");
     }
+  }
 }
 
 void insBeg(){
@@ -466,5 +472,43 @@ void LinearSearch(){
 		}
 		else
 		printf("Not founded");
+	}
+}
+
+
+void Findmin(){
+	struct node *p;
+	int max;
+	if(head==NULL){
+		printf("Empty list");
+	}
+	else{
+		p=head;
+		max=p->data;
+		for(;p!=NULL;p=p->next){
+			if(max>p->data){
+				max=p->data;
+			}
+			
+		}
+		printf("%d is maximam in list.\n",max);
+	}
+}
+
+void Findmax(){
+	struct node *p;
+	int max;
+	if(head==NULL){
+		printf("Empty list");
+	}
+	else{
+		p=head;
+		max=p->data;
+		for(;p!=NULL;p=p->next){
+			if(max<p->data){
+				max=p->data;
+			}
+		}
+		printf("%d is maximam in list.\n",max);
 	}
 }
