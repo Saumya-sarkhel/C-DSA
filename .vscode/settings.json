@@ -20,7 +20,9 @@
     "tempCodeRunnerFile.C": "cpp",
     "Polynomial_Form.C": "cpp",
     "Insert_Any_position.C": "cpp",
-    "Menu_Driven_LinkedList.C": "cpp"
+    "Menu_Driven_LinkedList.C": "cpp",
+    "random": "cpp",
+    "limits": "cpp"
   },
   "launch": {
 

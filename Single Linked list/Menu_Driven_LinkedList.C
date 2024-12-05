@@ -1,7 +1,8 @@
+
 #include<stdio.h>
 #include<stdlib.h>
-struct node//structure of NODE
-{
+
+struct node{
 	int data;
 	struct node * next;
 };
@@ -25,13 +26,6 @@ void Findmin();
 void Findmax();
 
 int main(){
-<<<<<<< HEAD
-  int n;
-  while(1){
-    printf("\n\n1. Insert At Beg\n2. Insert At End\n3. Insert after Any Position\n4. Display\n5. Delete From End\n6. Delete From Begining\n7. Insert after Any Value\n8. Insert at Any Position\n9. Insert Before Any Position\n10. Delete from any position\n11. Count node\n12. Sort the node\n");
-    printf("13. Reverce list\n14. Linear Search\n15. Finf Minimun\n16. Find Maximum\n17. Exit\n");
-    printf("enter your choice :");
-    scanf("%d",&n);
     int n;
     while(1){
         printf("\n\n1.Insert At Beg\n2.Insert At End\n3.Insert after Any Position\n4.Display\n5.Delete From End\n6.Delete From Begining\n7.Insert after Any Value\n8.Insert at Any Position\n9.Insert Before Any Position\n10.Delete from any position\n11.Count node\n12.Sort the node\n");
@@ -65,13 +59,12 @@ int main(){
                     display();
                     break;
             case 13: reverce();
-                      break;
+                    break;
             case 14: LinearSearch();
-                      break;
+                    break;
             case 15: exit(1);
             default:  printf("Wrong choice..plz re-enter..! ");
         }
-    }
   }
 }
 
@@ -81,17 +74,13 @@ void insBeg(){
     printf("enter the data :");
     scanf("%d",&new1->data);
    	new1->next=NULL;
-    if(head==NULL)//if no NODE in the list
-    {
-        head=new1;
-        
+    if(head==NULL){
+      head=new1;
     }
-    else
-    {
-        new1->next=head;
-        head=new1;
+    else{
+      new1->next=head;
+      head=new1;
     }
-
 }
 
 void insEnd(){
@@ -100,18 +89,15 @@ void insEnd(){
     printf("enter the data :");
     scanf("%d",&new1->data);
    	new1->next=NULL;
-    if(head==NULL)//if no NODE in the list
-    {
-        head=new1; 
+    if(head==NULL){
+      head=new1; 
     }
-    else
-    {
-        p=head;
-        while(p->next!=NULL)//finding last NODE
-        {
-            p=p->next;
-        }
-        p->next=new1;
+    else{
+      p=head;
+      while(p->next!=NULL){
+        p=p->next;
+      }
+      p->next=new1;
     }
 }
 
@@ -122,13 +108,10 @@ void insAfterPos(){
     printf("enter the data :");
     scanf("%d",&new1->data);
    	new1->next=NULL;
-    if(head==NULL)//if no NODE in the list
-    {
-        //printf("This is the first node..");
-        head=new1;
+    if(head==NULL){
+      head=new1;
     }
-    else
-    {
+    else{
         p=head;
         i=1;
         printf("\nEnter the position:");
@@ -147,8 +130,7 @@ void insAfterPos(){
           new1->next=p->next;//if position in between fast and last position
           p->next=new1;
         }
-        else
-        {
+        else{
           printf("Possition not exists.. ");
         }
   }
@@ -161,10 +143,8 @@ void insAfterValue(){
     printf("enter the data :");
     scanf("%d",&new1->data);
    	new1->next=NULL;
-    if(head==NULL)//if no NODE in the list
-    {
-        //printf("This is the first node..");
-        head=new1;
+    if(head==NULL){
+      head=new1;
     }
     else{
         p=head;
@@ -199,8 +179,7 @@ void insAtPos(){
     {
         head=new1;
     }
-    else
-    {
+    else{
       p=head;
       i=1;
       printf("\nEnter the position:");
@@ -209,7 +188,7 @@ void insAtPos(){
       if(pos==0){
         new1->next=head;
         head=new1;
-      }
+    }
 		else{
 			while(i!=pos&&p->next!=NULL)//finding the position
       {
@@ -230,7 +209,6 @@ void insAtPos(){
           printf("Possition not exists.. ");
         }
 		}
-        
   }
 }
 
@@ -241,9 +219,7 @@ void insBeforePos(){
     printf("enter the data :");
     scanf("%d",&new1->data);
    	new1->next=NULL;
-    if(head==NULL)//if no NODE in the list
-    {
-        //printf("This is the first node..");
+    if(head==NULL){
         head=new1;
     }
     else{
@@ -256,7 +232,6 @@ void insBeforePos(){
           new1->next=head;
           head=new1;
         }
-
         else{
           while(i!=pos&&p->next!=NULL)//finding the position
           {
@@ -281,10 +256,9 @@ void insBeforePos(){
 void delBeg(){
     if(head==NULL)//if no NODE in the list
     {
-        printf("\nempty list..");
+      printf("\nempty list..");
     }
-    else
-    {
+    else{
       struct node *p=head;
       head=head->next;
       p->next=NULL;
@@ -298,10 +272,9 @@ void delEnd(){
 	{
 		printf("\nempty list..\n");
 	}
-	else
-	{
-	  p=head;
-	  q=head;
+	else{
+    p=head;
+    q=head;
     while(p->next!=NULL)//finding the last node
     {
       q=p;
@@ -311,7 +284,6 @@ void delEnd(){
     p->next=NULL;
     printf("Deleted data is:%d",p->data);
 	}
-
 }
 
 void display(){
