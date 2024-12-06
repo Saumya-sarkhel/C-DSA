@@ -1,5 +1,4 @@
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -314,7 +313,7 @@ void reverce(){
     for(p=head; p->next!=NULL; p=p->next);
     printf("NULL");
     for(q=p; q!=NULL; q=q->prev){
-      printf(" <-> %d", q->data);  
+        printf(" <-> %d", q->data);  
     }
     printf(" <-> NULL\n");
 }

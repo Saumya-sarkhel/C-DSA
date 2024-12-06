@@ -26,15 +26,6 @@ void Findmin();
 void Findmax();
 
 int main(){
-<<<<<<< HEAD:Single Linked list/Menu_Driven_LinkedList.C
-=======
-  int n;
-  while(1){
-    printf("\n\n1. Insert At Beg\n2. Insert At End\n3. Insert after Any Position\n4. Display\n5. Delete From End\n6. Delete From Begining\n7. Insert after Any Value\n8. Insert at Any Position\n9. Insert Before Any Position\n10. Delete from any position\n11. Count node\n12. Sort the node\n");
-    printf("13. Reverce list\n14. Linear Search\n15. Finf Minimun\n16. Find Maximum\n17. Exit\n");
-    printf("enter your choice :");
-    scanf("%d",&n);
->>>>>>> b19f68edc4b1cde061acff2bbd6b8548c7b34623:Linked list/Menu_Driven_LinkedList.C
     int n;
     while(1){
         printf("\n\n1.Insert At Beg\n2.Insert At End\n3.Insert after Any Position\n4.Display\n5.Delete From End\n6.Delete From Begining\n7.Insert after Any Value\n8.Insert at Any Position\n9.Insert Before Any Position\n10.Delete from any position\n11.Count node\n12.Sort the node\n");
@@ -458,7 +449,6 @@ void LinearSearch(){
 		printf("Not founded");
 	}
 }
-<<<<<<< HEAD
 
 
 void Findmin(){
