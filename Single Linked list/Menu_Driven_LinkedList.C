@@ -107,7 +107,7 @@ void insAfterPos(){
     new1=(struct node *)malloc(sizeof(struct node ));//dynamical creation of NODE
     printf("enter the data :");
     scanf("%d",&new1->data);
-   	new1->next=NULL;
+    new1->next=NULL;
     if(head==NULL){
       head=new1;
     }

@@ -96,8 +96,7 @@ void insert_End(){
 
 void Insert_After_Position(){
     int pos;
-    int i = 1;
-    struct Node *temp, *p=head;
+    struct Node *temp, *p;
     temp = (struct Node *)malloc(sizeof(struct Node));
     printf("Enter your data: ");
     scanf("%d", &temp->data);
@@ -109,6 +108,8 @@ void Insert_After_Position(){
         head = temp;
     }
     else{
+        p=head;
+        int i=1;
         if(pos<=0){
             printf("Invalid Position\n");
             return;
@@ -118,12 +119,12 @@ void Insert_After_Position(){
             i++;
         }
         if (i==pos && p->next!=NULL){
-            temp->next = p->next;
-            temp->prev = p;
-            p->next = temp;
+            temp->next=p->next;
+            temp->prev=p;
+            p->next=temp;
         }
         else if (i==pos && p->next==NULL){
-            p->next = temp;
+            p->next=temp;
             temp->prev = p;
         }
         else if (i!=pos && p->next==NULL){
@@ -150,27 +151,26 @@ void Insert_Before_Position(){
     else{   
         if(pos<=0){
             printf("Invalid Position\n");
-            return;
         }
         else if (pos==0){
-            temp->next = head;
-            head = temp;
+            temp->next=head;
+            head=temp;
         }
         else{
-            while (i<pos && p->next != NULL){
+            while (i<pos && p->next!=NULL){
                 p = p->next;
                 i++;
             }
-            if (i == pos && p->next != NULL){
+            if (i==pos && p->next!=NULL){
                 temp->next = p->next;
                 temp->prev = p;
-                p->next = temp;
+                p->next=temp;
             }
-            else if (i == pos && p->next == NULL){
-                p->next = temp;
-                temp->prev = p;
+            else if (i==pos && p->next==NULL){
+                p->next=temp;
+                temp->prev=p;
             }
-            else if (i != pos && p->next == NULL){
+            else if (i!=pos && p->next==NULL){
                 printf("Invalid Position\n");
             }
         }
@@ -192,19 +192,19 @@ void Insert_After_Value(){
         head = temp;
     }
     else{
-        while (p->data != value && p->next != NULL){
+        while (p->data!=value && p->next!=NULL){
             p = p->next;
         }
-        if (p->data == value && p->next != NULL){
+        if (p->data==value && p->next!=NULL){
             temp->next = p->next;
             temp->prev = p;
             p->next = temp;
         }
-        else if (p->data == value && p->next == NULL){
+        else if (p->data==value && p->next==NULL){
             p->next = temp;
             temp->prev = p;
         }
-        else if (p->data != value && p->next == NULL){
+        else if (p->data!=value && p->next==NULL){
             printf("Value not exist.\n");
         }
     }
@@ -238,7 +238,6 @@ void Delete_From_End(){
         q->next=NULL;
         p->prev=NULL;
         printf("Deleted data is : %d\n",p->data);
-        free(p);
     }
 }
 
@@ -268,7 +267,6 @@ void Delete_Any_Position(){
             head->prev = NULL;
             p->next=NULL;
             printf("Deleted data is : %d\n",p->data);
-            free(p); 
             }
             else{
                 while(p->next!=NULL && i<pos){
@@ -279,16 +277,10 @@ void Delete_Any_Position(){
                 if(i==pos && p->next!=NULL){
                     q->next=p->next;
                     p->next->prev=q;
-                    p->next=NULL;
-                    p->prev=NULL;
                     printf("Deleted Data is : %d\n",p->data);
-                    free(p);
                 }
                 else if(i==pos && p->next==NULL){
-                    q->next=NULL;
-                    p->prev=NULL;
                     printf("Deleted data is : %d\n",p->data);
-                    free(p);
                 }
                 else if(i!=pos && p->next==NULL){
                     printf("Invalid position\n");
