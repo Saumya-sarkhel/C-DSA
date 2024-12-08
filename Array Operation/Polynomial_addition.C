@@ -8,9 +8,9 @@ typedef struct Polynomial Pol;
 
 void insert_Polynomial(Pol poly[], int *n) {
     for (int i=0; i<*n; i++) {
-        printf("Enter coefficient %d: ", i + 1);
+        printf("Enter coefficient %d: ",i+1);
         scanf("%d", &poly[i].coef);
-        printf("Enter exponent %d: ", i + 1);
+        printf("Enter exponent %d: ",i+1);
         scanf("%d", &poly[i].exp);
     }
 }
@@ -52,20 +52,20 @@ int main(){
 	i=0;
 	j=0;
 	k=0;
-	while(i<n&&j<m){
+	while(i<n && j<m){
 		if(a[i].exp==b[j].exp){
 			c[k].coef=a[i].coef+b[j].coef;
 			c[k].exp=a[i].exp;
 			i++;
 			j++;
 		}
-		else if(a[i].exp>b[j].exp){
+		else if(a[i].exp > b[j].exp){
 			c[k].coef=a[i].coef;
 			c[k].exp=a[i].exp;
 			i++;
-		}
+		} 
 		else{
-			c[k].coef=b[j].coef;
+			c[k].coef = b[j].coef;
 			c[k].exp=b[j].exp;
 			j++;
 		}
