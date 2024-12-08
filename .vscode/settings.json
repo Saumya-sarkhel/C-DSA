@@ -24,7 +24,8 @@
     "random": "cpp",
     "limits": "cpp",
     "Polinomial_addition.C": "cpp",
-    "Polynomial_addition.C": "cpp"
+    "Polynomial_addition.C": "cpp",
+    "Polynomial_multiplication.C": "cpp"
   },
   "launch": {
 

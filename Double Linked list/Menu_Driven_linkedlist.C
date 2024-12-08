@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,12 +18,14 @@ void Delete_Any_Position();
 void count_Nodes();
 void display();
 void reverce();
+void Findmax();
+void Findmin();
 
 
 int main(){
     int choice;
     while (1){
-        printf("\n1. Insert at beginning \n2. Insert at end \n3. Insert after any position \n4. Insert before any position \n5. Insert after any value \n6. Delete from beginning \n7. Delete from end\n8. Delete from any position \n9. Reverce\n10. Display\n11. Count\n12. exit");
+        printf("\n1. Insert at beginning \n2. Insert at end \n3. Insert after any position \n4. Insert before any position \n5. Insert after any value \n6. Delete from beginning \n7. Delete from end\n8. Delete from any position \n9. Reverce\n10. Display\n11. Count\n12. Find Max\n13. Find min\n14. exit");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice){
@@ -50,7 +51,11 @@ int main(){
                 break;
         case 11: count_Nodes();
                 break;
-        case 12: exit(0);
+        case 12: Findmax();
+                break;
+        case 13: Findmin();
+                break;
+        case 14: exit(0);
         default:
             printf("Invalid choice, enter right choice.\n");
         }
@@ -310,7 +315,6 @@ void reverce(){
     printf(" <-> NULL\n");
 }
 
-
 void display(){
     struct Node *ptr = head;
     printf("NULL");
@@ -320,4 +324,40 @@ void display(){
         ptr = ptr->next;
     }
     printf(" <-> NULL\n");
+}
+
+void Findmax(){
+    struct Node *p;
+    int max;
+    if(head==NULL){
+        printf("Empty list");
+    }
+    else{
+        p=head;
+        max=p->data;
+        for(p=head; p!=NULL; p=p->next){
+            if(max<p->data){
+                max=p->data;
+            }
+        }
+        printf("%d is maximum in list.\n",max);
+    }
+}
+
+void Findmin(){
+    struct Node *p;
+    int min;
+    if(head==NULL){
+        printf("Empty list");
+    }
+    else{
+        p=head;
+        min=p->data;
+        for(p=head; p!=NULL; p=p->next){
+            if(min>p->data){
+                min=p->data;
+            }
+        }
+        printf("%d is minimum in list.\n",min);
+    }
 }

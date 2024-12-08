@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -29,7 +28,7 @@ int main(){
     int n;
     while(1){
         printf("\n\n1.Insert At Beg\n2.Insert At End\n3.Insert after Any Position\n4.Display\n5.Delete From End\n6.Delete From Begining\n7.Insert after Any Value\n8.Insert at Any Position\n9.Insert Before Any Position\n10.Delete from any position\n11.Count node\n12.Sort the node\n");
-        printf("13.Reverce list\n14.Linear Search\n15.Exit\n");
+        printf("13.Reverce list\n14.Linear Search\n15.Find max\n16.Find Min\n17.Exit\n");
         printf("enter your choice :");
         scanf("%d",&n);
         switch(n){
@@ -62,7 +61,11 @@ int main(){
                     break;
             case 14: LinearSearch();
                     break;
-            case 15: exit(1);
+            case 15: Findmax();
+                    break;
+            case 16: Findmin();
+                    break;
+            case 17: exit(1);
             default:  printf("Wrong choice..plz re-enter..! ");
         }
   }
@@ -453,20 +456,20 @@ void LinearSearch(){
 
 void Findmin(){
 	struct node *p;
-	int max;
+	int min;
 	if(head==NULL){
 		printf("Empty list");
 	}
 	else{
 		p=head;
-		max=p->data;
-		for(;p!=NULL;p=p->next){
-			if(max>p->data){
-				max=p->data;
+		min=p->data;
+		for(p=head;p!=NULL;p=p->next){
+			if(min>p->data){
+				min=p->data;
 			}
 			
 		}
-		printf("%d is maximam in list.\n",max);
+		printf("%d is minimum in list.\n",min);
 	}
 }
 
@@ -479,11 +482,11 @@ void Findmax(){
 	else{
 		p=head;
 		max=p->data;
-		for(;p!=NULL;p=p->next){
+		for(p=head;p!=NULL;p=p->next){
 			if(max<p->data){
 				max=p->data;
 			}
 		}
-		printf("%d is maximam in list.\n",max);
+		printf("%d is maximum in list.\n",max);
 	}
 }
