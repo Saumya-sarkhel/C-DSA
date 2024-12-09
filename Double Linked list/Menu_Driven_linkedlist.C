@@ -20,12 +20,13 @@ void display();
 void reverce();
 void Findmax();
 void Findmin();
+void LinearSearch();
 
 
 int main(){
     int choice;
     while (1){
-        printf("\n1. Insert at beginning \n2. Insert at end \n3. Insert after any position \n4. Insert before any position \n5. Insert after any value \n6. Delete from beginning \n7. Delete from end\n8. Delete from any position \n9. Reverce\n10. Display\n11. Count\n12. Find Max\n13. Find min\n14. exit");
+        printf("\n1. Insert at beginning \n2. Insert at end \n3. Insert after any position \n4. Insert before any position \n5. Insert after any value \n6. Delete from beginning \n7. Delete from end\n8. Delete from any position \n9. Reverce\n10. Display\n11. Count\n12. Find Max\n13. Find min\n14. Linear search\n15. exit");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice){
@@ -55,7 +56,9 @@ int main(){
                 break;
         case 13: Findmin();
                 break;
-        case 14: exit(0);
+        case 14: LinearSearch();
+                break;
+        case 15: exit(0);
         default:
             printf("Invalid choice, enter right choice.\n");
         }
@@ -359,5 +362,28 @@ void Findmin(){
             }
         }
         printf("%d is minimum in list.\n",min);
+    }
+}
+
+void LinearSearch(){
+    struct Node *p = head;
+    if(head == NULL){
+        printf("Empty list..\n");
+    }
+    else{
+        int key, flag = 0;
+        printf("Enter the value you want to search: ");
+        scanf("%d", &key);
+        while(p != NULL){
+            if(p->data == key){
+                printf("%d found in the list.\n", key);
+                flag = 1;
+                break;
+            }
+            p = p->next;
+        }
+        if(flag == 0){
+            printf("\nItem not found.\n");
+        }
     }
 }
