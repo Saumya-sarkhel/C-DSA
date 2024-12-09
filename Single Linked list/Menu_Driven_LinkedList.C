@@ -399,34 +399,23 @@ void selection_sort(){
 }
 
 void reverce(){
-	struct node *p,*q,*r,*l;
-	int i=1;
-	if(head==NULL){
-		printf("Empty list.\n");
-	}
-	else{
-		p=head;
-		while(p->next!=NULL){
-			q=head;
-			while(q->next!=NULL){
-				r=q;
-				q=q->next;
-			}
-			if(i==1){
-				q->next=head;
-				r->next=NULL;
-				head=q;
-				l=q;
-			}
-			else if(p->next!=NULL){
-				q->next=l->next;
-				l->next=q;
-				r->next=NULL;
-			}
-			i++;
-		}
-	}
-  display();
+    struct node *prevNode, *curNode;
+    if(head != NULL){
+        prevNode = head;
+        curNode = head->next;
+        head = head->next;
+        prevNode->next = NULL;
+        while(head != NULL)
+        {
+          head = head->next;
+          curNode->next = prevNode;
+          prevNode = curNode;
+          curNode = head;
+        }
+        head = prevNode; // Make last node as head
+        display();
+        printf("SUCCESSFULLY REVERSED LIST\n");
+    }
 }
 
 void LinearSearch(){
