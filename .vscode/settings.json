@@ -12,6 +12,9 @@
     "Polynomial_addition.C": "cpp",
     "Polynomial_multiplication.C": "cpp",
     "test.C": "cpp",
-    "Menu_Driven_linkedlist.C": "cpp"
+    "Menu_Driven_linkedlist.C": "cpp",
+    "Queue_using_Linkedlist.C": "cpp",
+    "Single_ended_queue.C": "cpp",
+    "Stack_using_Linkedlist.C": "cpp"
   },
 }

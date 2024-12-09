@@ -12,12 +12,10 @@ int main(){
 	int queue[10], max, choice;
 	printf("Enter the Max Size:");
 	scanf("%d",&max);
-
 	while(1){
 		printf("\n\n1.ENQUEUE \n2.DEQUEUE \n3.DISPLAY \n4.EXIT\n");
 		printf("\nEnter your choice: ");
 		scanf("%d",&choice);
-
 		switch(choice){
 			case 1: Enqueue(queue,max);
 					break;
@@ -41,7 +39,6 @@ void Enqueue(int *queue, int max){
         rear++;
         printf("Enter the data: ");
         scanf("%d", &queue[rear]);
-
         if(rear==0){
             front=0;
         }
@@ -72,7 +69,6 @@ void display(int *queue){
     if(rear == -1 && front == -1){
         printf("Queue is empty...");
     }
-
     else{
         i= front;
         printf("Queue elements are:\n");
