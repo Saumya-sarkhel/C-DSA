@@ -9,10 +9,8 @@
   "editor.fontLigatures": false,
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
-    "Menu_Driven_linkedlist.C": "cpp",
-    "Menu-Driven-linkedlist.C": "cpp",
-    "Polynomial_multiplication.C": "cpp",
-    "Stack_using_Linkedlist.C": "cpp",
-    "Queue_using_Linkedlist.C": "cpp"
+    "test.C": "cpp",
+    "split_arr-OddEven.C": "cpp",
+    "Split-arr-OddEven-pos.C": "cpp"
 },
 }
