@@ -1,5 +1,5 @@
 
-#include<stdio.h>
+#include<stdio.h> //Split array elements in odd and even numbers
 
 void splitarray(int arr[], int size, int oddarr[], int evenarr[], int *odd, int *even){
     int i;
