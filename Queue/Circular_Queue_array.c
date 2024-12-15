@@ -22,10 +22,10 @@ int main(){
 			case 2:	dequeue(queue,max);
 				break;
 			case 3:	display(queue,max);
-				break;	
+				break;
 			case 4:	exit(1);
-				break;	
-			default:printf("\nEnter a valid choice.");		
+				break;
+			default:printf("\nEnter a valid choice.");
 		}
 	}
 }
@@ -37,8 +37,7 @@ void enqueue(int *queue,int max){
 		rear=(rear+1)%max;
 		printf("Enter the data:");
 		scanf("%d",&queue[rear]);
-		
-		if(rear==0 && front==-1) front=0;	
+		if(rear==0 && front==-1) front=0;
 	}
 }
 
@@ -57,7 +56,7 @@ void dequeue(int *queue,int max){
 		else{
 			front=(front+1)% max;
     }
-		printf("Deleted element is:%d\n",data);	
+		printf("Deleted element is:%d\n",data);
 	}
 }
 
@@ -72,8 +71,8 @@ void display(int *queue,int max){
 			i=front;
 			while(i<=rear){
 				printf("%d |",queue[i]);
-				i++;	
-			}	
+				i++;
+			}
 		}
 
 		else if(rear<front){
@@ -82,12 +81,11 @@ void display(int *queue,int max){
 				printf("%d |",queue[i]);
 				i++;
 			}
-      
 			j=front;
 			while(j<=(max-1)){
 				printf("| %d |\n",queue[j]);
 				j++;
 			}
 		}
-	}	
+	}
 }
