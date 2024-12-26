@@ -10,20 +10,4 @@
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "test.C": "cpp",
-    "Merge-array.C": "cpp",
-    "Binary_search.C": "cpp",
-    "Split-arr-OddEven-pos.C": "cpp",
-    "Temp.C": "cpp",
-    "Binary-Search_recursion.C": "cpp",
-    "Polynomial_Form.C": "cpp",
-    "Polynomial-form.C": "cpp",
-    "Polynomial_multiplication.C": "cpp",
-    "Queue_using_Linkedlist.C": "cpp",
-    "Single_ended_queue.C": "cpp",
-    "Circular-Queue-linkedlist.C": "cpp",
-    "tempCodeRunnerFile.C": "cpp",
-    "Polynomial_addition.C": "cpp",
-    "LinearSearch-Recursion.C": "cpp",
-    "Linear_search.C": "cpp"
-},
 }

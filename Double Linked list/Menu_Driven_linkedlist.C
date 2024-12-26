@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //Double linked list
 
 struct Node{
     struct Node *prev, *next;
@@ -160,7 +160,7 @@ void Insert_Before_Position(){
     if (head == NULL){
         head = temp;
     }
-    else{   
+    else{
         if(pos<=0){
             printf("Invalid Position\n");
         }
@@ -317,7 +317,7 @@ void reverce(){
     for(p=head; p->next!=NULL; p=p->next);
     printf("NULL");
     for(q=p; q!=NULL; q=q->prev){
-        printf(" <-> %d", q->data);  
+        printf(" <-> %d", q->data);
     }
     printf(" <-> NULL\n");
 }
