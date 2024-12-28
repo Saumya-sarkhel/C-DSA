@@ -70,10 +70,12 @@ int main() {
             case 11: reverse();
             break;
             case 12:
-                if (head != NULL) printf("Maximum value: %d\n", findMax());
+                if (head != NULL)
+                printf("Maximum value: %d\n", findMax());
                 break;
             case 13:
-                if (head != NULL) printf("Minimum value: %d\n", findMin());
+                if (head != NULL)
+                printf("Minimum value: %d\n", findMin());
                 break;
             case 14: linearSearch();
             break;
@@ -135,7 +137,6 @@ void display() {
         printf("List is empty\n");
         return;
     }
-
     printf("List elements: ");
     struct Node *p = head;
     do {
@@ -150,14 +151,12 @@ void delbeg() {
         printf("List is empty\n");
         return;
     }
-
     if (head->next == head) {
         printf("Deleted element: %d\n", head->data);
         free(head);
         head = NULL;
         return;
     }
-
     struct Node *p = head;
     while (p->next != head) {
         p = p->next;
@@ -174,14 +173,12 @@ void delend() {
         printf("List is empty\n");
         return;
     }
-
     if (head->next == head) {
         printf("Deleted element: %d\n", head->data);
         free(head);
         head = NULL;
         return;
     }
-
     struct Node *p = head, *q = NULL;
     while (p->next != head) {
         q = p;
@@ -196,26 +193,23 @@ void insertAtPosition() {
     int pos;
     printf("Enter position: ");
     scanf("%d", &pos);
-
     if (pos < 1) {
         printf("Invalid position\n");
         return;
     }
-
     struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
     if (temp == NULL) {
         printf("Memory allocation failed\n");
         return;
     }
-
     printf("Enter data: ");
     scanf("%d", &temp->data);
-
     if (pos == 1) {
         if (head == NULL) {
             head = temp;
             temp->next = head;
-        } else {
+        }
+        else {
             struct Node *p = head;
             while (p->next != head) {
                 p = p->next;
@@ -226,18 +220,15 @@ void insertAtPosition() {
         }
         return;
     }
-
     struct Node *p = head;
     for (int i = 1; i < pos - 1 && p->next != head; i++) {
         p = p->next;
     }
-
     if (p->next == head && pos > 2) {
         printf("Position exceeds list length\n");
         free(temp);
         return;
     }
-
     temp->next = p->next;
     p->next = temp;
 }
@@ -247,36 +238,29 @@ void insertAfterPosition() {
         printf("List is empty\n");
         return;
     }
-
     int pos;
     printf("Enter position after which to insert: ");
     scanf("%d", &pos);
-
     if (pos < 1) {
         printf("Invalid position\n");
         return;
     }
-
     struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
     if (temp == NULL) {
         printf("Error.\n");
         return;
     }
-
     printf("Enter data: ");
     scanf("%d", &temp->data);
-
     struct Node *p = head;
     for (int i = 1; i < pos && p->next != head; i++) {
         p = p->next;
     }
-
     if (p->next == head && pos > 1) {
         printf("Error.\n");
         free(temp);
         return;
     }
-
     temp->next = p->next;
     p->next = temp;
 }
@@ -285,26 +269,23 @@ void insertBeforePosition() {
     int pos;
     printf("Enter position before which to insert: ");
     scanf("%d", &pos);
-
     if (pos < 1) {
         printf("Invalid position\n");
         return;
     }
-
     struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
     if (temp == NULL) {
         printf("Error\n");
         return;
     }
-
     printf("Enter data: ");
     scanf("%d", &temp->data);
-
     if (pos == 1) {
         if (head == NULL) {
             head = temp;
             temp->next = head;
-        } else {
+        }
+        else {
             struct Node *p = head;
             while (p->next != head) {
                 p = p->next;
@@ -315,19 +296,16 @@ void insertBeforePosition() {
         }
         return;
     }
-
     struct Node *p = head, *prev = NULL;
     for (int i = 1; i < pos && p->next != head; i++) {
         prev = p;
         p = p->next;
     }
-
     if (p->next == head && pos > 2) {
         printf("Error.\n");
         free(temp);
         return;
     }
-
     temp->next = p;
     prev->next = temp;
 }
@@ -337,32 +315,26 @@ void deleteAtPosition() {
         printf("List is empty\n");
         return;
     }
-
     int pos;
     printf("Enter position to delete: ");
     scanf("%d", &pos);
-
     if (pos < 1) {
         printf("Invalid position\n");
         return;
     }
-
     if (pos == 1) {
         delbeg();
         return;
     }
-
     struct Node *p = head, *prev = NULL;
     for (int i = 1; i < pos && p->next != head; i++) {
         prev = p;
         p = p->next;
     }
-
     if (p->next == head && pos > 2) {
         printf("Error.\n");
         return;
     }
-
     prev->next = p->next;
     printf("Deleted element: %d\n", p->data);
     free(p);
@@ -370,7 +342,6 @@ void deleteAtPosition() {
 
 int countNodes() {
     if (head == NULL) return 0;
-
     int count = 1;
     struct Node *p = head->next;
     while (p != head) {
@@ -381,22 +352,29 @@ int countNodes() {
 }
 
 void reverse() {
-    if (head == NULL || head->next == head) return;
-
-    struct Node *prev = NULL, *curr = head, *next;
+    if (head == NULL || head->next == head)
+    return;
+    struct Node *prev = NULL, *curr = head, *next;;
     struct Node *last = head;
     while (last->next != head) last = last->next;
 
-    do {
-        next = curr->next;
+    do{
+        curr = curr->prev;
+        curr->prev = curr->next;
         curr->next = prev;
-        prev = curr;
-        curr = next;
-    } while (curr != head);
-
-    head->next = prev;
-    head = prev;
-    last->next = head;
+        curr = curr->prev;
+    }while(curr != head);
+    head = curr->prev;
+    // do {
+    //     next = curr->next;
+    //     curr->next = prev;
+    //     prev = curr;
+    //     curr = next;
+    // } while (curr != head);
+    // head->next = prev;
+    // head = prev;
+    // last->next = head;
+    // display();
 }
 
 int findMax() {
@@ -404,7 +382,6 @@ int findMax() {
         printf("List is empty\n");
         return INT_MIN;
     }
-
     int max = head->data;
     struct Node *p = head->next;
     while (p != head) {
@@ -419,7 +396,6 @@ int findMin() {
         printf("List is empty\n");
         return INT_MAX;
     }
-
     int min = head->data;
     struct Node *p = head->next;
     while (p != head) {
@@ -434,11 +410,9 @@ int linearSearch() {
         printf("List is empty\n");
         return -1;
     }
-
     int key, pos = 1;
     printf("Enter element to search: ");
     scanf("%d", &key);
-
     struct Node *p = head;
     do {
         if (p->data == key) {
@@ -448,7 +422,6 @@ int linearSearch() {
         pos++;
         p = p->next;
     } while (p != head);
-
     printf("Element not found\n");
     return -1;
 }
