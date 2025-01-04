@@ -22,10 +22,10 @@ int main(){
 void mergesort(int a[],int beg,int end){
 	int mid;
 	if(beg<end){
-			mid=(beg+end)/2;
-			mergesort(a,beg,mid);
-			mergesort(a,mid+1,end);
-			merge(a,beg,mid,end);
+		mid=(beg+end)/2;
+		mergesort(a,beg,mid);
+		mergesort(a,mid+1,end);
+		merge(a,beg,mid,end);
 	}
 }
 
