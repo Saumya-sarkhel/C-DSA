@@ -1,0 +1,16 @@
+Delete from End:
+
+Algorithm: Del_End()
+Begin.
+Step-1: if (head = NULL) then 
+	Print “empty list”
+	Goto step 5
+Step-2: set p  head 
+Step-3: set q  head 
+Step-4: while (pnext ≠ NULL) then 
+	set q  p 
+	set p  pnext 
+Step-5: set qnext  NULL 
+Step-6: set pnext  NULL 
+Step-7: Print “Deleted data is: pdata”
+Step-8: Stop.

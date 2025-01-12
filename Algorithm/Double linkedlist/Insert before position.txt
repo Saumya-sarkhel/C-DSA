@@ -1,0 +1,48 @@
+Ins_before_pos()
+
+Start 
+1. If head = NULL then 
+    Print "List is empty."
+    Goto step 10
+2. Set temp getNode()
+3. Insert position (int pos)
+4. Enter data (int data)
+5. Set pos <-- pos - 1
+6. Set temp --> next <-- NULL
+7. Set temp --> prev <-- NULL
+8. If head = NULL then 
+    Set head <-- temp
+9.Else 
+    1. Set p <-- head
+    2. Set i <-- 1
+    3.If pos ≤ 0 then 
+        Print "Invalid Position"
+        Goto step 10
+    4. Else If pos = 0 then 
+        1.	Set temp --> next <-- head
+        2.	Set head <-- temp
+    5.	Else 
+        1.	While i < pos and p --> next ≠ NULL 
+            1.	Set p <-- p --> next
+            2.	Set i <-- i + 1
+        2.	If i = pos and p --> next ≠ NULL then 
+            1.	Set temp --> next <-- p
+            2.	Set temp --> prev <-- p --> prev
+            3.	Set p --> prev --> next <-- temp
+            4.	Set p --> prev <-- temp
+        3.	Else If i = pos and p --> next = NULL then 
+            1.	Set p --> next <-- temp
+            2.	Set temp --> prev <-- p
+        4.	Else If i ≠ pos and p --> next = NULL then 
+            Print "Invalid Position".
+10.	Stop.
+
+
+Get_node()
+Begin
+Step-1: if (AVAIL = NULL) then 
+    Print “Memory is in inefficient”.
+    Goto step 5
+Step-2: set ptr <-- AVAIL
+Step-4: return(ptr)
+Step-5: stop

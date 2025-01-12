@@ -1,0 +1,42 @@
+Ins_at_any_pos()
+
+Start 
+Step-1: If head = NULL then 
+    Print "List is empty."
+    Goto step 11
+Step-2: Set new1 <-- getNode()
+Step-3: Set new1 <-- data  data
+Step-4: Set new1 --> next <-- NULL
+Step-5: Set new1 --> prev <-- NULL
+Step-6: Enter position (int pos)
+Step-7: Set pos <-- pos - 1
+Step-8: If pos < 0 then 
+    Print "Invalid position."
+    Goto step 11
+Step-9: Set p <-- head
+Set i <-- 1
+Step-10: While i ≠ pos and p --> next ≠ NULL 
+    1.	Set i <-- i + 1
+    2.	Set p <-- p --> next
+2.	If i = pos and p  next ≠ NULL then 
+    1.	Set new1-->next <-- p-->next
+    2.	Set p-->next <-- prev-->new1
+    3.	Set p-->next <-- new1
+    4.	Set new1-->prev <-- p
+3.	Else If i = pos and p  next = NULL then 
+    1.	Set p-->next <-- new1
+    2.	Set new1-->prev <-- p
+4.	Else 
+    Print "Position not exist"
+
+Step-11: Stop.
+
+
+Get_node()
+Begin
+Step-1: if (AVAIL = NULL) then 
+    Print “Memory is in inefficient”.
+    Goto step 5
+Step-2: set ptr <-- AVAIL
+Step-4: return(ptr)
+Step-5: stop

@@ -1,0 +1,16 @@
+Find Maximum:
+
+Algorithm: Findmax 
+Begin,
+Step-1: if (head = NULL) then 
+	Print “Empty list”
+	Goto step 6 
+Step-2: set p  head 
+Step-3: set max  pdata
+Step-4: for p = head to p ≠ NULL
+	if (max < pdata) then 
+		set max  pdata 
+		[end of if]
+	[end of for] 
+Step-5: print maximum value.
+Step-6: Stop.

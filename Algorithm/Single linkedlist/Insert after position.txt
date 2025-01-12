@@ -1,0 +1,32 @@
+Insert after position:
+
+Insertafterpos()
+Begin.
+Step-1: new1  Getnode()
+Step-2: set new1next  NULL
+Step-3: Enter the data int data(new1data)
+Step-4: if head = NULL then
+		Set Head  new1
+		Goto step 11
+Step-5: set p  head
+Step-6: set I 1
+Step-7: Enter the position (pos)
+Step-8: while (i  ≠ pos & pnext ≠ NULL)
+		Set p  pnext
+		Set i   i+1
+Step-9: if (pnext = NULL & i = pos) then
+		Set pnext   new1
+Step-10: else if (pnext ≠ NULL & i = pos) then 
+		Set new1next  pnext
+		Set pnext  new1
+Step-11: stop. 
+
+
+Get_node()
+Begin
+Step-1: if (AVAIL = NULL) then 
+	Print “Memory is in inefficient”.
+	Goto step 5
+Step-2: set ptr  AVAIL
+Step-4: return(ptr)
+Step-5: stop.

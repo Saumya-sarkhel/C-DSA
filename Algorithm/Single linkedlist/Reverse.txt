@@ -1,0 +1,17 @@
+Reverse
+
+Reverse ()
+Begin.
+Step-1: if (head = NULL) then 
+	Goto step 9
+Step-2: set prevNode <-- head 
+Step-3: set curNode <-- head-->next 
+Step-4: set head <-- head-->next 
+Step-5: set prevNode-->next <-- NULL 
+Step-6: while (head ≠ NULL)
+	set head <-- head-->next
+	set curNode-->next <-- prevNode 
+	set prevNode <-- curNode 
+	set curNode <-- head 
+Step-7: set head <-- prevNode
+Step-9: Stop

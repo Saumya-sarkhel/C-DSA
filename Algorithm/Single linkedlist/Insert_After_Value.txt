@@ -1,0 +1,30 @@
+Insert_After_Value
+
+Insert_After_Value()
+Begin.
+Step-1: New1  get_node()
+Step-2: Enter data int data(new1data)
+Step-3: set new1next  NULL
+Step-4: if (head = NULL) then 
+	set Head  new1
+	goto step 10
+Step-5: set p  head
+Step-6: Enter data int key.
+Step-7: while (pdata ≠ key & pnext ≠ NULL) then
+	Set p  pnext
+Step-8: if (pnext = NULL & pdata = key) then
+	set pnext  new1
+Step-9: else if (pnext ≠ NULL & pdata = key) then
+	set new1next  pnext
+	set pnext  new1
+Step-10: Stop.
+
+
+Get_node()
+Begin
+Step-1: if (AVAIL = NULL) then 
+Print “Memory is in inefficient”.
+Goto step 5
+Step-2: set ptr  AVAIL
+Step-4: return(ptr)
+Step-5: stop.

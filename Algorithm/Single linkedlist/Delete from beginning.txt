@@ -1,0 +1,12 @@
+Delete from beginning
+
+Del_Beg()
+Begin.
+Step-1: if (head = NULL) then 
+	Print “empty list”
+	Goto step 4
+Step-2: set p  head 
+Step-3: set head  headnext
+	set pnext  NULL 
+	Print “Deleted data is: Pdata”
+Step-4: Stop.

@@ -1,0 +1,28 @@
+Ins_end()
+
+Step 1: Start
+Step 2: Set new1<--getNode()
+Step 3: Set new1-->data <-- data
+Step 4: Set new1-->next <-- NULL
+Step 5: Set new1-->prev <-- NULL
+Step 6: If (head=NULL) then
+		Set head<--new1
+Step 7:	Else
+		Set p<--head
+Step 8: While p-->next ≠ NULL
+		Set p <-- p-->next
+		[End of While]
+Step 9: Set p-->next <-- new1
+Step 10: Set new1-->prev <-- p
+		[End of If]
+Step 11: Stop.
+
+
+Get_node()
+Begin
+Step-1: if (AVAIL = NULL) then 
+	Print “Memory is in inefficient”.
+	Goto step 5
+Step-2: set ptr <-- AVAIL
+Step-4: return(ptr)
+Step-5: stop.

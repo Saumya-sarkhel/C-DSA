@@ -1,0 +1,37 @@
+Ins_after_value()
+
+Start 
+1.	If head = NULL then 
+    Print "List is empty."
+    Goto step 9
+2.	Enter data (int data)
+3.	Enter value to insert after (int value)
+4.	Set temp <-- getNode()
+5.	Set temp --> next <-- NULL
+6.	Set temp --> prev <-- NULL
+7.	If head = NULL then 
+		Set head <-- temp
+8.	Else 
+    1. Set p <-- head
+    2. While p --> data ≠ value and p --> next ≠ NULL 
+			Set p <-- p --> next
+    3. If p --> data = value and p --> next ≠ NULL then 
+        1.	Set temp --> next <-- p --> next
+        2.	Set temp --> prev <-- p
+        3.	Set p --> next <-- temp
+    4. Else If p --> data = value and p --> next = NULL then 
+        1.	Set p --> next <-- temp
+        2.	Set temp --> prev <-- p
+    5. Else If p --> data ≠ value and p --> next = NULL then 
+        Print "Value not exist."
+9.	stop
+
+
+Get_node()
+Begin
+Step-1: if (AVAIL = NULL) then 
+    Print “Memory is in inefficient”.
+    Goto step 5
+Step-2: set ptr  AVAIL
+Step-4: return(ptr)
+Step-5: stop

@@ -1,0 +1,23 @@
+Insert at the Beginning:
+
+Insert_beg ()
+Begin 
+Step 1: New1  get_node()
+Step 2: set new1next  NULL
+Step 3: Enter data int data(new1data)
+Step 4: if (head = NULL) then 
+	   Set Head  new1
+	   Goto step 7
+Step 5: set new1next  head
+Step 6: set head  new1
+Step 7: stop
+
+
+Get_node()
+Begin
+Step 1: if (AVAIL = NULL) then 
+	Print “Memory is in inefficient”.
+	Goto step 5
+Step 2: set ptr  AVAIL
+Step 4: return(ptr)
+Step 5: stop.

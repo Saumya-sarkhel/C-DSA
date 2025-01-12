@@ -1,0 +1,6 @@
+Strat 
+1. Initialize a pointer ptr<--head 
+2. while ptr ≠ NULL 
+    1. Print "ptr --> data" 
+    2. set ptr <-- ptr-->next 
+3. Stop.

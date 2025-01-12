@@ -1,0 +1,11 @@
+start
+1. Initialize two pointer *p, *q
+2. set p <-- head
+3. While p-->next ≠ NULL
+    1. set p <-- p-->next
+4. set q <-- p
+5. While q ≠ NULL
+    1. print q-->data
+    2. set q <-- q-->prev
+
+6. Stop.

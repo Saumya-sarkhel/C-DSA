@@ -1,0 +1,28 @@
+Selection Sort
+
+Selection_Sort()
+Begin.
+Step-1: if (head = NULL) then 
+	Print “Empty list”
+	Goto step 14
+Step-2: set p  head 
+Step-3: set k1  NULL 
+Step-4: while (p->next ≠ NULL) 
+	set q  head 
+	set r  q 
+Step-5: while (q ≠ k1) 
+Step-6: if (qdata > rdata) then
+	set r  q
+
+Step-7: set k  q 
+Step-8: set q  qnext 
+Step-9: if (r ≠ k) then 
+	set t  rdata
+	set rdata  kdata 
+	set kdata  t 
+Step-10: set q  head 
+Step-11: while (q ≠ k)
+	set q  qnext 
+Step12: set k1  q 
+Step13: set p  pnext 
+Step-14: Stop. 
