@@ -1,8 +1,0 @@
-Start
-1. Set ptr <-- head
-2. set count <-- 0
-3. while ptr ≠ NULL
-    1. set count <-- count + 1
-    2. set ptr <-- ptr --> next
-4. Print "The total number of Nodes is: count"
-5. stop.
