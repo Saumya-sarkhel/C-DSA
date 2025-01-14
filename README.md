@@ -2,7 +2,7 @@
 This repository contains implementations of fundamental Data Structures and Algorithms in C programming language. The goal is to provide clear, concise, and well-commented code for learning and practice.
 
 ## Data Structures:
-
+### Code:
 1. Array - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Array%20Operation)
 2. Stack - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Stack)
 3. Queue - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Queue)
@@ -13,4 +13,4 @@ This repository contains implementations of fundamental Data Structures and Algo
 8. Circular Linked List - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Circular%20Linked%20list)
 
 
-I'll be updating more later. 
+I'll be updating more later.
