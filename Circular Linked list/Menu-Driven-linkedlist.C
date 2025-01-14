@@ -16,13 +16,13 @@ void insertAfterPosition();
 void insertBeforePosition();
 void deleteAtPosition();
 int countNodes();
-void reverse();
-int findMax();
-int findMin();
+void reverce();
+void findMax();
+void findMin();
 int linearSearch();
+void sort();
 
 struct Node *head = NULL;
-
 
 int main() {
     int choice;
@@ -33,16 +33,17 @@ int main() {
         printf("3. Display List\n");
         printf("4. Delete from Beginning\n");
         printf("5. Delete from End\n");
-        printf("6. Insert at Position\n");
+        printf("6. Insert at any Position\n");
         printf("7. Insert after Position\n");
         printf("8. Insert before Position\n");
-        printf("9. Delete from Position\n");
+        printf("9. Delete from any Position\n");
         printf("10. Count Nodes\n");
         printf("11. Reverse List\n");
         printf("12. Find Maximum\n");
         printf("13. Find Minimum\n");
         printf("14. Linear Search\n");
-        printf("15. Exit\n");
+        printf("15. Sort the List\n");
+        printf("16. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -67,19 +68,19 @@ int main() {
             break;
             case 10: printf("Total nodes: %d\n", countNodes());
             break;
-            case 11: reverse();
+            case 11: reverce();
             break;
-            case 12:
-                if (head != NULL)
-                printf("Maximum value: %d\n", findMax());
-                break;
-            case 13:
-                if (head != NULL)
-                printf("Minimum value: %d\n", findMin());
-                break;
+            case 12: findMax();
+            break;
+            case 13: findMin();
+            break;
             case 14: linearSearch();
             break;
-            case 15: exit(0);
+            case 15:
+                sort();
+                display();
+                break;
+            case 16: exit(0);
             default: printf("Invalid choice\n");
         }
     }
@@ -88,25 +89,26 @@ int main() {
 
 
 void insbeg() {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
-    if (temp == NULL) {
-        printf("Memory allocation failed\n");
-        return;
+    struct Node *new1 = (struct Node *)malloc(sizeof(struct Node));
+    if (new1 == NULL) {
+        printf("Memory allocation failed!\n");
+        exit(1);
     }
-    printf("Enter the data: ");
-    scanf("%d", &temp->data);
+    printf("Enter data: ");
+    scanf("%d", &new1->data);
+
 
     if (head == NULL) {
-        head = temp;
-        temp->next = head;
+        head = new1;
+        head->next = head;
     } else {
         struct Node *p = head;
         while (p->next != head) {
             p = p->next;
         }
-        temp->next = head;
-        p->next = temp;
-        head = temp;
+        new1->next = head;
+        p->next = new1;
+        head = new1;
     }
 }
 
@@ -140,7 +142,7 @@ void display() {
     printf("List elements: ");
     struct Node *p = head;
     do {
-        printf("%d -> ", p->data);
+        printf("<- %d -> ", p->data);
         p = p->next;
     } while (p != head);
     printf("HEAD\n");
@@ -310,6 +312,7 @@ void insertBeforePosition() {
     prev->next = temp;
 }
 
+
 void deleteAtPosition() {
     if (head == NULL) {
         printf("List is empty\n");
@@ -323,7 +326,25 @@ void deleteAtPosition() {
         return;
     }
     if (pos == 1) {
-        delbeg();
+        if (head == NULL) {
+            printf("List is empty\n");
+            return;
+        }
+        if (head->next == head) {
+            printf("Deleted element: %d\n", head->data);
+            free(head);
+            head = NULL;
+            return;
+        }
+        struct Node *p = head;
+        while (p->next != head) {
+            p = p->next;
+        }
+        struct Node *temp = head;
+        head = head->next;
+        p->next = head;
+        printf("Deleted element: %d\n", temp->data);
+        free(temp);
         return;
     }
     struct Node *p = head, *prev = NULL;
@@ -340,6 +361,7 @@ void deleteAtPosition() {
     free(p);
 }
 
+
 int countNodes() {
     if (head == NULL) return 0;
     int count = 1;
@@ -351,58 +373,57 @@ int countNodes() {
     return count;
 }
 
-void reverse() {
-    if (head == NULL || head->next == head)
-    return;
-    struct Node *prev = NULL, *curr = head, *next;;
-    struct Node *last = head;
-    while (last->next != head) last = last->next;
 
-    do{
-        curr = curr->prev;
-        curr->prev = curr->next;
+void reverce() {
+    if (head == NULL) {
+        printf("Empty list\n");
+        return;
+    }
+
+    struct Node* curr = head;
+    struct Node* prev = NULL;
+    struct Node* nextptr;
+
+    do {
+        nextptr = curr->next;
         curr->next = prev;
-        curr = curr->prev;
-    }while(curr != head);
-    head = curr->prev;
-    // do {
-    //     next = curr->next;
-    //     curr->next = prev;
-    //     prev = curr;
-    //     curr = next;
-    // } while (curr != head);
-    // head->next = prev;
-    // head = prev;
-    // last->next = head;
-    // display();
+        prev = curr;
+        curr = nextptr;
+    } while (curr != head);
+
+    head->next = prev;
+    head = prev;
 }
 
-int findMax() {
+void findMax() {
     if (head == NULL) {
-        printf("List is empty\n");
-        return INT_MIN;
+        printf("Empty list\n");
     }
     int max = head->data;
-    struct Node *p = head->next;
-    while (p != head) {
-        if (p->data > max) max = p->data;
+    struct Node* p = head;
+    do {
+        if (p->data > max) {
+            max = p->data;
+        }
         p = p->next;
-    }
-    return max;
+    } while (p != head);
+    printf("Maximum number is: %d\n", max);
 }
 
-int findMin() {
+void findMin() {
     if (head == NULL) {
-        printf("List is empty\n");
-        return INT_MAX;
+        printf("Empty list\n");
+        return;
     }
     int min = head->data;
-    struct Node *p = head->next;
-    while (p != head) {
-        if (p->data < min) min = p->data;
+    struct Node* p = head;
+    do {
+        if (p->data < min) {
+            min = p->data;
+        }
         p = p->next;
-    }
-    return min;
+    } while (p != head);
+    printf("Minimum number is: %d\n", min);
 }
 
 int linearSearch() {
@@ -424,4 +445,27 @@ int linearSearch() {
     } while (p != head);
     printf("Element not found\n");
     return -1;
+}
+
+
+void sort() {
+    if (head == NULL) {
+        printf("Empty list\n");
+        return;
+    }
+    int swapped;
+    do {
+        swapped = 0;
+        struct Node* curr = head;
+        do {
+            struct Node* next = curr->next;
+            if (curr->data > next->data) {
+                int temp = curr->data;
+                curr->data = next->data;
+                next->data = temp;
+                swapped = 1;
+            }
+            curr = curr->next;
+        } while (curr->next != head);
+    } while (swapped);
 }

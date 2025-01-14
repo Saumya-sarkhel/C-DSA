@@ -22,12 +22,13 @@ void Findmax();
 void Findmin();
 void LinearSearch();
 void selection_sort();
+void ins_at_any_pos();
 
 
 int main(){
     int choice;
     while (1){
-        printf("\n1. Insert at beginning \n2. Insert at end \n3. Insert after any position \n4. Insert before any position \n5. Insert after any value \n6. Delete from beginning \n7. Delete from end\n8. Delete from any position \n9. Reverce\n10. Display\n11. Count\n12. Find Max\n13. Find min\n14. Linear search\n15. Selection sort\n16. exit");
+        printf("\n1. Insert at beginning \n2. Insert at end \n3. Insert after any position \n4. Insert before any position \n5. Insert after any value \n6. Delete from beginning \n7. Delete from end\n8. Delete from any position\n9. Insert any position\n10. Reverce\n11. Display\n12. Count\n13. Find Max\n14. Find min\n15. Linear search\n16. Selection sort\n17. exit");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice){
@@ -47,22 +48,24 @@ int main(){
                 break;
         case 8: Delete_Any_Position();
                 break;
-        case 9: reverce();
+        case 9: ins_at_any_pos();
                 break;
-        case 10: display();
+        case 10: reverce();
                 break;
-        case 11: count_Nodes();
+        case 11: display();
                 break;
-        case 12: Findmax();
+        case 12: count_Nodes();
                 break;
-        case 13: Findmin();
+        case 13: Findmax();
                 break;
-        case 14: LinearSearch();
+        case 14: Findmin();
                 break;
-        case 15: selection_sort();
+        case 15: LinearSearch();
+                break;
+        case 16: selection_sort();
                 display();
                 break;
-        case 16: exit(0);
+        case 17: exit(0);
         default:
             printf("Invalid choice, enter right choice.\n");
         }
@@ -103,6 +106,48 @@ void insert_End(){
         }
         p->next = temp;
         temp->prev = p;
+    }
+}
+
+void ins_at_any_pos() {
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    struct Node* new1 = (struct Node*)malloc(sizeof(struct Node));
+    printf("Enter data: ");
+    scanf("%d", &new1->data);
+    new1->next = NULL;
+    new1->prev = NULL;
+
+    int pos;
+    printf("Enter position to insert: ");
+    scanf("%d", &pos);
+    pos--;
+
+    if (pos < 0) {
+        printf("Invalid position.\n");
+        return;
+    }
+
+    struct Node* p = head;
+    int i = 1;
+    while (i != pos && p->next != NULL) {
+        i++;
+        p = p->next;
+    }
+
+    if (i == pos && p->next != NULL) {
+        new1->next = p->next;
+        p->next->prev = new1;
+        p->next = new1;
+        new1->prev = p;
+    } else if (i == pos && p->next == NULL) {
+        p->next = new1;
+        new1->prev = p;
+    } else {
+        printf("Position not exist\n");
     }
 }
 
