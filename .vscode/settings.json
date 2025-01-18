@@ -6,8 +6,12 @@
   },
 
   "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": false,
+  "editor.fontLigatures": true,
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "test.C": "cpp",
+    "tempCodeRunnerFile.C": "cpp",
+    "Menu_Driven_LinkedList.C": "cpp",
+    "Menu-Driven-linkedlist.C": "cpp"
+}
 }

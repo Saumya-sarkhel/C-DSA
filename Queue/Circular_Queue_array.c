@@ -70,7 +70,7 @@ void display(int *queue,int max){
 		if(front<=rear){
 			i=front;
 			while(i<=rear){
-				printf("%d |",queue[i]);
+				printf(" %d |",queue[i]);
 				i++;
 			}
 		}
@@ -78,7 +78,7 @@ void display(int *queue,int max){
 		else if(rear<front){
 			i=0;
 			while(i<=rear){
-				printf("%d |",queue[i]);
+				printf(" %d |",queue[i]);
 				i++;
 			}
 			j=front;
