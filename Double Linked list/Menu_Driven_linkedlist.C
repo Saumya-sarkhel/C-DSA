@@ -286,6 +286,7 @@ void Delete_From_End(){
     struct Node *p=head, *q=head;
     if(head==NULL){
       printf("Empty list\n");
+      return;
     }
     else{
       while(p->next!=NULL){
@@ -295,57 +296,107 @@ void Delete_From_End(){
         q->next=NULL;
         p->prev=NULL;
         printf("Deleted data is : %d\n",p->data);
+        free(p);
     }
 }
 
 void Delete_Any_Position(){
-    int pos, i=1;
-    printf("Enter Your position: ");
-    scanf("%d",&pos);
-    struct Node *p=head, *q=head;
-    if(head==NULL){
-      printf("Empty list\n");
+    struct Node *p, *q, *s;
+    if (head == NULL){
+        printf("\nThe list is Empty");
     }
     else{
-        if(p->prev==NULL && p->next==NULL){
-            head=p->next;
-            head->prev=NULL;
-            p->next=NULL;
-            printf("Deleted Data is :%d\n",p->data);
-            free(p);
+        int i, pos;
+        printf("\nEnter the position: ");
+        scanf("%d", &pos);
+        if (pos == 1 && head->next == NULL){
+            printf("\nDeleted data is %d", head->data);
+            head = NULL;
+        }
+        else if (pos == 1){
+            p = head;
+            head = head->next;
+            head->prev == NULL;
+            p->next = NULL;
+            printf("\nDeleted data is %d", p->data);
         }
         else{
-            if(pos<=0){
-            printf("Invalid Position\n");
-            return;
+            p = head;
+            q = head;
+            i = 1;
+            while (p->next != NULL && i != pos){
+                q = p;
+                p = p->next;
+                i++;
             }
-            else if(pos==1){
-            head = p->next;
-            head->prev = NULL;
-            p->next=NULL;
-            printf("Deleted data is : %d\n",p->data);
+            s = p->next;
+            if (pos == i && p->next != NULL){
+                q->next = p->next;
+                s->prev = q;
+                p->next = NULL;
+                p->prev = NULL;
+                printf("\nDeleted data is %d", p->data);
+            }
+            else if (pos == i && p->next == NULL){
+                q->next = NULL;
+                p->prev = NULL;
+                printf("\nDeleted data is %d", p->data);
             }
             else{
-                while(p->next!=NULL && i<pos){
-                    q=p;
-                    p=p->next;
-                    i++;
-                }
-                if(i==pos && p->next!=NULL){
-                    q->next=p->next;
-                    p->next->prev=q;
-                    printf("Deleted Data is : %d\n",p->data);
-                }
-                else if(i==pos && p->next==NULL){
-                    printf("Deleted data is : %d\n",p->data);
-                }
-                else if(i!=pos && p->next==NULL){
-                    printf("Invalid position\n");
-                }
+                printf("\nPosition not found");
             }
         }
     }
 }
+
+// void Delete_Any_Position(){
+//     int pos, i=1;
+//     printf("Enter Your position: ");
+//     scanf("%d",&pos);
+//     struct Node *p=head, *q=head;
+//     if(head==NULL){
+//       printf("Empty list\n");
+//     }
+//     else{
+//         if(p->prev==NULL && p->next==NULL){
+//             head=p->next;
+//             head->prev=NULL;
+//             p->next=NULL;
+//             printf("Deleted Data is :%d\n",p->data);
+//             free(p);
+//         }
+//         else{
+//             if(pos<=0){
+//             printf("Invalid Position\n");
+//             return;
+//             }
+//             else if(pos==1){
+//             head = p->next;
+//             head->prev = NULL;
+//             p->next=NULL;
+//             printf("Deleted data is : %d\n",p->data);
+//             }
+//             else{
+//                 while(p->next!=NULL && i<pos){
+//                     q=p;
+//                     p=p->next;
+//                     i++;
+//                 }
+//                 if(i==pos && p->next!=NULL){
+//                     q->next=p->next;
+//                     p->next->prev=q;
+//                     printf("Deleted Data is : %d\n",p->data);
+//                 }
+//                 else if(i==pos && p->next==NULL){
+//                     printf("Deleted data is : %d\n",p->data);
+//                 }
+//                 else if(i!=pos && p->next==NULL){
+//                     printf("Invalid position\n");
+//                 }
+//             }
+//         }
+//     }
+// }
 
 void count_Nodes(){
     struct Node *ptr=head;
@@ -358,6 +409,10 @@ void count_Nodes(){
 }
 
 void reverce(){
+    if (head == NULL) {
+        printf("The list is empty\n");
+        return;
+    }
     struct Node *p, *q;
     for(p=head; p->next!=NULL; p=p->next);
     printf("NULL");
