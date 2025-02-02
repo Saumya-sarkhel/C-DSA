@@ -12,6 +12,9 @@
     "test.C": "cpp",
     "tempCodeRunnerFile.C": "cpp",
     "Menu_Driven_LinkedList.C": "cpp",
-    "Menu-Driven-linkedlist.C": "cpp"
+    "Menu-Driven-linkedlist.C": "cpp",
+    "Bubble_Sort.C": "cpp",
+    "Binary_search.C": "cpp",
+    "Binary-search-tree.C": "cpp"
 }
 }
