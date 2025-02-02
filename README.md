@@ -11,6 +11,7 @@ This repository contains implementations of fundamental Data Structures and Algo
 6. Single Linked List - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Single%20Linked%20list)
 7. Double Linked List - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Double%20Linked%20list)
 8. Circular Linked List - [Click here](https://github.com/SaumyaSarkhel/C-DSA/tree/main/Circular%20Linked%20list)
+9. Binary Tree - [Click here](https://github.com/Saumya-sarkhel/C-DSA/tree/main/Binary%20Tree)
 
 
 I'll be updating more later.
