@@ -326,10 +326,6 @@ void deleteAtPosition() {
         return;
     }
     if (pos == 1) {
-        if (head == NULL) {
-            printf("List is empty\n");
-            return;
-        }
         if (head->next == head) {
             printf("Deleted element: %d\n", head->data);
             free(head);

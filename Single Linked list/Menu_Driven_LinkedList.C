@@ -284,24 +284,28 @@ void delBeg(){
         head = head->next;
         p->next = NULL;
         printf("Deleted data is:%d", p->data);
+        free(p);
     }
 }
 
 void delEnd(){
-    struct node *p, *q;
     if (head == NULL){
         printf("\nempty list..\n");
+        return;
+    }
+    else if (head->next == NULL){
+        printf("Deleted data is:%d", head->data);
+        free(head);
+        head = NULL;
     }
     else{
-        p = head;
-        q = head;
-        while (p->next != NULL){
-            q = p;
+        struct node *p = head;
+        while (p->next->next != NULL){
             p = p->next;
         }
-        q->next = NULL;
+        printf("Deleted data is:%d", p->next->data);
+        free(p->next);
         p->next = NULL;
-        printf("Deleted data is:%d", p->data);
     }
 }
 
@@ -332,12 +336,15 @@ void DelAnypos(){
         scanf("%d", &pos);
         if (pos == i && head->next == NULL){
             printf("deleted data is: %d", head->data);
+            free(head);
+            head = NULL;
         }
         else if (pos == i){
             p = head;
             head = head->next;
             p->next = NULL;
             printf("Deleted data is: %d", p->data);
+            free(p);
         }
         else{
             p = head;
@@ -351,11 +358,13 @@ void DelAnypos(){
             if (pos == i && p->next == NULL){
                 q->next = NULL;
                 printf("Deleted data is: %d", p->data);
+                free(p);
             }
             else if (pos == i && p->next != NULL){
                 q->next = p->next;
                 p->next = NULL;
                 printf("Deletde data is: %d", p->data);
+                free(p);
             }
             else //(p->next != NULL && i != pos)
             {
