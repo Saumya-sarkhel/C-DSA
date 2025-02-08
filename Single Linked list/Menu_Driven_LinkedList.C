@@ -415,16 +415,17 @@ void selection_sort(){
 
 struct node* reverse(struct node* head) {
     struct node* prev = NULL;
-    struct node* front = head;
+    struct node* temp = head;
     struct node* next = NULL;
 
-    while (current != NULL) {
-        next = front->next;  // Store next node
-        front->next = prev;  // Reverse current node's pointer
-        prev = front;        // Move pointers one position ahead
-        front = next;
+    while (temp != NULL) {
+        next = temp->next;  // Store next node
+        temp->next = prev;  // Reverse current node's pointer
+        prev = temp;        // Move pointers one position ahead
+        temp = next;
     }
     head = prev;
+    printf("Reverse successful\n");
     return head;
 }
 
