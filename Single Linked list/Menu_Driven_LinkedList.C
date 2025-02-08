@@ -19,7 +19,7 @@ void insBeforePos();
 void DelAnypos();
 void count();
 void selection_sort();
-void reverce();
+node* reverse(struct node *head);
 void LinearSearch();
 void Findmin();
 void Findmax();
@@ -70,7 +70,7 @@ int main(){
             display();
             break;
         case 13:
-            reverce();
+            head = reverse(head);
             break;
         case 14:
             LinearSearch();
@@ -413,54 +413,52 @@ void selection_sort(){
     }
 }
 
-// void reverce(){
-//     struct node *prevNode, *curNode;
-//     if (head != NULL){
-//         prevNode = head;
-//         curNode = head->next;
-//         head = head->next;
-//         prevNode->next = NULL;
-//         while (head != NULL){
-//             head = head->next;
-//             curNode->next = prevNode;
-//             prevNode = curNode;
-//             curNode = head;
-//         }
-//         head = prevNode; // Make last node as head
-//         display();
-//         printf("SUCCESSFULLY REVERSED LIST\n");
-//     }
-// }
+struct node* reverse(struct node* head) {
+    struct node* prev = NULL;
+    struct node* front = head;
+    struct node* next = NULL;
 
-void reverce() {
-    struct node *p, *q, *r, *l;
-    int i = 1;
-
-    if (head == NULL) {
-        printf("Empty list\n");
-    } else {
-        p = head;
-        while (p->next != NULL) {
-            q = head;
-            while (q->next != NULL) {
-                r = q;
-                q = q->next;
-            }
-            if (i == 1) {
-                q->next = head;
-                r->next = NULL;
-                head = q;
-                l = q;
-            } else if (p->next != NULL) {
-                q->next = l->next;
-                l->next = q;
-                l = l->next;
-                r->next = NULL;
-            }
-            i++;
-        }
+    while (current != NULL) {
+        next = front->next;  // Store next node
+        front->next = prev;  // Reverse current node's pointer
+        prev = front;        // Move pointers one position ahead
+        front = next;
     }
+    head = prev;
+    return head;
 }
+
+// void reverce() { //working code, diff approach
+//     struct node *p, *q, *r, *l;
+//     int i = 1;
+
+//     if (head == NULL) {
+//         printf("Empty list\n");
+//     } else {
+//         p = head;
+//         while (p->next != NULL) {
+//             q = head;
+//             while (q->next != NULL) {
+//                 r = q;
+//                 q = q->next;
+//             }
+//             if (i == 1) {
+//                 q->next = head;
+//                 r->next = NULL;
+//                 head = q;
+//                 l = q;
+//             } else if (p->next != NULL) {
+//                 q->next = l->next;
+//                 l->next = q;
+//                 l = l->next;
+//                 r->next = NULL;
+//             }
+//             i++;
+//         }
+//     }
+//     printf("\nReverce successful\n");
+//     display();
+// }
 
 void LinearSearch(){
     struct node *p;
