@@ -17,7 +17,7 @@ void Delete_From_End();
 void Delete_Any_Position();
 void count_Nodes();
 void display();
-void reverce();
+Node* reverse(struct Node* head);
 void Findmax();
 void Findmin();
 void LinearSearch();
@@ -50,7 +50,7 @@ int main(){
                 break;
         case 9: ins_at_any_pos();
                 break;
-        case 10: reverce();
+        case 10: head = reverse(head);
                 break;
         case 11: display();
                 break;
@@ -408,19 +408,24 @@ void count_Nodes(){
     printf("The total number of Node is : %d\n",count);
 }
 
-void reverce(){
-    if (head == NULL) {
-        printf("The list is empty\n");
-        return;
+struct Node *reverse(struct Node* head){
+    if(head == NULL || head->next == NULL){
+        return head;
     }
-    struct Node *p, *q;
-    for(p=head; p->next!=NULL; p=p->next);
-    printf("NULL");
-    for(q=p; q!=NULL; q=q->prev){
-        printf(" <-> %d", q->data);
+    Node *prev = NULL;
+    Node *temp = head;
+    Node *next = NULL;
+    while(temp != NULL){
+        prev = temp->prev;
+
+        temp->prev = temp->next;
+        temp->next = prev;
+        temp = temp->prev;
     }
-    printf(" <-> NULL\n");
+    printf("\nReverse successful")
+    return prev->prev;
 }
+
 
 void display(){
     struct Node *ptr = head;
