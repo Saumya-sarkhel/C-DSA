@@ -3,7 +3,8 @@
 
 struct Node {
     int data;
-    struct Node* lchild, *rchild;
+    struct Node* lchild;
+    struct Node* rchild;
 };
 typedef struct Node Bst;
 
@@ -44,15 +45,15 @@ int main(){
                     break;
             case 7: Minimum(root);
                     break;
-            case 8: int internalNodes = Internal_node(root);
-                    printf("Number of Internal Nodes is: %d\n", internalNodes);
-                    break;
-            case 9: int externalNodes = External_node(root);
-                    printf("Number of External Nodes is: %d\n", externalNodes);
-                    break;
-            case 10: int totalNodes = Internal_node(root) + External_node(root);
-                    printf("Number of Total Nodes is: %d\n", totalNodes);
-                    break;
+            case 8:
+                printf("Number of Internal Nodes is: %d\n", Internal_node(root));
+                break;
+            case 9:
+                printf("Number of External Nodes is: %d\n", External_node(root));
+                break;
+            case 10:
+                printf("Number of Total Nodes is: %d\n", Total_node(root));
+                break;
             default: printf("\nInvalid choice");
         }
     }
@@ -142,10 +143,8 @@ void Minimum(Bst *t){
 int Internal_node(Bst *t){
     if(t==NULL)
         return 0;
-
     else if(t->lchild == NULL && t->rchild == NULL)
         return 0;
-
     else
         return(Internal_node(t->lchild)+Internal_node(t->rchild)+1);
 }
@@ -153,10 +152,8 @@ int Internal_node(Bst *t){
 int External_node(Bst *t){
     if(t==NULL)
         return 0;
-
     else if(t->lchild == NULL && t->rchild == NULL)
         return 1;
-
     else
         return(External_node(t->lchild)+External_node(t->rchild));
 }
