@@ -5,9 +5,9 @@
     "compounds": []
   },
 
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": true,
-  "C_Cpp.errorSquiggles": "disabled",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": false,
+  "C_Cpp.errorSquiggles": "enabled",
   "files.associations": {
     "test.C": "cpp",
     "tempCodeRunnerFile.C": "cpp",
@@ -15,6 +15,7 @@
     "Menu-Driven-linkedlist.C": "cpp",
     "Bubble_Sort.C": "cpp",
     "Binary_search.C": "cpp",
-    "Binary-search-tree.C": "cpp"
+    "Binary-search-tree.C": "cpp",
+    "Double-ended-queue-array.C": "cpp"
 }
 }
