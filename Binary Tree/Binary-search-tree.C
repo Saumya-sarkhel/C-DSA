@@ -17,13 +17,15 @@ void Minimum(Bst *r);
 int Internal_node(Bst*);
 int External_node(Bst*);
 int Total_node(Bst*);
+Bst* DeleteNode(Bst*, int);
+int search(Bst*, int);
 Bst *root = NULL;
 
 int main(){
-    int x, n;
+    int x, n, val;
     while(1){
         printf("\n1. Insert\n2. Inorder\n3. Preorder\n4. Postorder\n5. Exit\n");
-        printf("6. Maximum\n7. Minimum\n8. Internal Node\n9. External Node\n10. Total Node\n");
+        printf("6. Maximum\n7. Minimum\n8. Internal Node\n9. External Node\n10. Total Node\n11. Delete Node\n");
         printf("Enter your choice: ");
         scanf("%d", &x);
         switch(x){
@@ -31,29 +33,53 @@ int main(){
                     scanf("%d", &n);
                     insert(n);
                     break;
-            case 2: printf("Inorder traversal is: ");
+            case 2: if(root == NULL){
+                        printf("\nTree is empty...");
+                        break;
+                    }
+                    printf("\nInorder traversal is: ");
                     inorder(root);
                     break;
-            case 3: printf("Prerder traversal is: ");
+            case 3: if(root == NULL){
+                        printf("\nTree is empty...");
+                        break;
+                    }
+                    printf("\nPreOrder traversal is: ");
                     preorder(root);
                     break;
-            case 4: printf("Postrder traversal is: ");
+            case 4: if(root == NULL){
+                        printf("\nTree is empty...");
+                        break;
+                    }
+                    printf("\nPostOrder traversal is: ");
                     postorder(root);
                     break;
             case 5: exit(1);
-            case 6: Maximum(root);
-                    break;
-            case 7: Minimum(root);
-                    break;
+            case 6: Maximum(root); break;
+            case 7: Minimum(root); break;
             case 8:
-                printf("Number of Internal Nodes is: %d\n", Internal_node(root));
+                printf("\nNumber of Internal Nodes is: %d\n", Internal_node(root));
                 break;
             case 9:
-                printf("Number of External Nodes is: %d\n", External_node(root));
+                printf("\nNumber of External Nodes is: %d\n", External_node(root));
                 break;
             case 10:
-                printf("Number of Total Nodes is: %d\n", Total_node(root));
+                printf("\nNumber of Total Nodes is: %d\n", Total_node(root));
                 break;
+            case 11:
+                    if(root == NULL){
+                        printf("\nTree is empty...\n");
+                        break;
+                    }
+                    printf("\nEnter the element to be deleted: ");
+                    scanf("%d", &val);
+                    if(search(root, val)){
+                        root = DeleteNode(root, val);
+                        printf("Data %d has been deleted...\n", val);
+                    } else {
+                        printf("Data %d not found in the tree...\n", val);
+                    }
+                    break;
             default: printf("\nInvalid choice");
         }
     }
@@ -146,7 +172,7 @@ int Internal_node(Bst *t){
     else if(t->lchild == NULL && t->rchild == NULL)
         return 0;
     else
-        return(Internal_node(t->lchild)+Internal_node(t->rchild)+1);
+        return(Internal_node(t->lchild)+ Internal_node(t->rchild)+1);
 }
 
 int External_node(Bst *t){
@@ -155,7 +181,7 @@ int External_node(Bst *t){
     else if(t->lchild == NULL && t->rchild == NULL)
         return 1;
     else
-        return(External_node(t->lchild)+External_node(t->rchild));
+        return(External_node(t->lchild)+ External_node(t->rchild));
 }
 
 int Total_node(Bst *t){
@@ -163,4 +189,67 @@ int Total_node(Bst *t){
         return 0;
     else
         return Internal_node(t) + External_node(t);
+}
+
+
+
+Bst* findMin(Bst* node){
+    while (node->lchild != NULL){
+        node = node->lchild;
+    }
+    return node;
+}
+
+Bst* DeleteNode(Bst* root, int value){
+    if (root == NULL){
+        return root;
+    }
+    if (value < root->data){
+        root->lchild = DeleteNode(root->lchild, value);
+    }
+    else if (value > root->data){
+        root->rchild = DeleteNode(root->rchild, value);
+    }
+    else {
+        //Case 1:leaf node
+		if(root->lchild==NULL && root->rchild==NULL){
+			free(root);
+			return NULL;
+		}
+		//Case 2:Internal node with one child node
+		else if(root->lchild==NULL){
+			Bst *temp = root;
+			root=root->rchild;
+            free(temp);
+			return root;
+		}
+		else if(root->rchild==NULL){
+			Bst *temp = root;
+			root=root->lchild;
+            free(temp);
+			return root;
+		}
+		//Case 3:Internal node with two child node
+		else
+		{
+			Bst *temp = findMin(root->rchild);
+			root->data = temp->data;
+			root->rchild = DeleteNode(root->rchild,temp->data);
+		}
+	}
+	return root;
+}
+
+int search(Bst* root, int value){
+    if (root == NULL)
+        return 0;
+
+    if (root->data == value)
+        return 1;
+
+    else if (value < root->data)
+        return search(root->lchild, value);
+
+    else
+        return search(root->rchild, value);
 }
