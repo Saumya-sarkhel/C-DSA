@@ -1,6 +1,6 @@
 test.C
 test.exe
-Sorting/Radix_Shot.C
+Sorting/Radix_Sort.C
 *.exe
 .vscode/*
 ".vscode"
