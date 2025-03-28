@@ -64,3 +64,66 @@ int main(){
 	display_pol(c, n3);
 	return 0;
 }
+
+
+
+
+
+// #include<stdio.h>     // Method 2
+// #include<stdlib.h>
+
+// struct Polynomial{
+// 	int cof,exp;
+// };
+// typedef struct Polynomial Pol;
+
+// void getPolynomial(Pol*, int);
+// void display(Pol*, int);
+
+// int main(){
+// 	Pol a[10],b[10],c[20];
+// 	int n,m,i,j,k,flag;
+// 	printf("\nEnter the no of term for 1st pol: ");
+// 	scanf("%d",&n);
+// 	printf("\nEnter the number of term for 2nd pol: ");
+// 	scanf("%d",&m);
+// 	printf("\nEnter the 1st polynomial:");
+// 	getPolynomial(a,n);
+// 	printf("\nEnter the 2nd polynomial :");
+// 	getPolynomial(b,m);
+// 	printf("\n1st Polynomial is : ");
+// 	display(a,n);
+// 	printf("\n2nd Polynomial is : ");
+// 	display(b,m);
+// 	k=0;
+// 	for(i=0;i<n;i++){
+// 		for(j=0;j<m;j++,k++){
+// 			c[k].cof=a[i].cof*b[j].cof;
+// 			c[k].exp=a[i].exp+b[j].exp;
+// 		}
+// 	}
+// 	printf("\nPolynomial Multiplication is: ");
+// 	display(c,k);
+// }
+
+// void getPolynomial(Pol a[],int n){
+// 	int i;
+// 	for(i=0;i<n;i++){
+// 		printf("\nEnter coefficient :");
+// 		scanf("%d",&a[i].cof);
+// 		printf("\nEnter the exponent :");
+// 		scanf("%d",&a[i].exp);
+// 	}
+// }
+
+// void display(Pol a[],int n){
+// 	int i;
+// 	for(i=0;i<n;i++){
+// 		if(a[i].exp==0)
+// 			printf("( %d )",a[i].cof);
+// 		else if(i==(n-1))
+// 			printf("(%d)X^%d  ",a[i].cof,a[i].exp);
+// 		else
+// 			printf("(%d) X^%d + ",a[i].cof,a[i].exp);
+// 	}
+// }
