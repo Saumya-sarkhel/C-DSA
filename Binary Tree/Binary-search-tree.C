@@ -19,6 +19,7 @@ int External_node(Bst*);
 int Total_node(Bst*);
 Bst* DeleteNode(Bst*, int);
 int search(Bst*, int);
+Bst* findMin(Bst*);
 Bst *root = NULL;
 
 int main(){
@@ -201,10 +202,13 @@ Bst* findMin(Bst* node){
 }
 
 Bst* DeleteNode(Bst* root, int value){
-    if (root == NULL){
-        return root;
-    }
-    if (value < root->data){
+    int s;
+    s = search(root, value);
+    if(s==0){
+		printf("%d is not present in BST...\n");
+		return root;
+	}
+    else if (value < root->data){
         root->lchild = DeleteNode(root->lchild, value);
     }
     else if (value > root->data){
