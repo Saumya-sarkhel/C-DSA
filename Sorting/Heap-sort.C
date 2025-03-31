@@ -1,8 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+void heapify(int *arr, int, int);
+void heapSort(int *arr, int);
+void printArray(int *arr, int);
+
 
 int main() {
-    int arr[] = {9, 4, 3, 8, 10, 2, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n, *arr;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    arr = (int *)malloc(n * sizeof(int));
+    printf("Enter %d integers:\n", n);
+    for (int i=0; i<n; i++) {
+        scanf("%d", &arr[i]);
+    }
 
     heapSort(arr, n);
 
