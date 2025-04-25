@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct node//structure of node
-{
+
+struct node{
     int data;
     struct node * next;
 };
@@ -89,11 +89,10 @@ void display(){
         printf("\nstack is Empty\n");
     }
     else{
-        printf("\nElements in the stack is\n");
-        while(p!=NULL){
-            printf("%d\n",p->data);
-            p=p->next;
-        }
-    }
+		printf("Stack is:");
+		for(p=head;p!=NULL;p=p->next){
+			printf("|%d|",p->data);
+		}
+	}
 
 }

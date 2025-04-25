@@ -11,7 +11,7 @@ int main()
 	scanf("%d",&n);
 	for(i=0;i<n;i++)
 	{
-		printf("Enter the co-eficient part of term %d:",(i+1));
+		printf("Enter the coefficient part of term %d:",(i+1));
 		scanf("%d",&p[i].cof);
 		printf("Enter the exponent part of term %d:",(i+1));
 		scanf("%d",&p[i].exp);
