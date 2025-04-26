@@ -7,20 +7,24 @@ struct node{
 };
 typedef struct node stack;
 
+int top = -1;
 void push(int);//for pushing elements in the stack
 void pop();//for poping elements in the stack
 void display();//displaying the stack's elements
+int peek();
 stack *head=NULL;//top position of the stack
 
 int main(){
-    int ch,top=-1,max,data;
+    int ch,max,data;
     printf("Enter the maxsize :");
     scanf("%d",&max);
     while(1){
-       printf("\n1.for push\n");
-       printf("2.for pop\n");
-       printf("3.for display\n");
-       printf("4.exit\n");
+       printf("\n1.Push\n");
+       printf("2.Pop\n");
+       printf("3.Display\n");
+       printf("4.Exit\n");
+       printf("5.peek\n");
+
        printf("\nEnter your Choice :");
        scanf("%d",&ch);
        switch(ch){
@@ -38,7 +42,7 @@ int main(){
                     printf("\nStack is Empty\n");
                 }
                 else{
-                    pop();
+                    pop(); //pop the element
                     top--;
                 }
                 break;
@@ -46,6 +50,12 @@ int main(){
                 break;
         case 4: exit(1);
                 break;
+        case 5:if (top == -1){
+                printf("\nStack is Empty\n");
+            }else{
+                printf("The top element is: %d\n", peek());
+            }
+            break;
         default: printf("wrong choice\n");
         }
     }
@@ -63,36 +73,43 @@ void push(int data){
         new1->next=head;
         head=new1;
     }
-
 }
 
 void pop(){
     stack *p=head;
     int data;
     if(head->next==NULL){
-            data=head->data;
-            head=NULL;
+        data=head->data;
+        head=NULL;
     }
     else{
-            head=head->next;
-            data=p->data;
-            p->next=NULL;
+        head=head->next;
+        data=p->data;
+        p->next=NULL;
     }
+    free(p);
     printf("the deleted element is=%d\n",data);
+}
 
+int peek() {
+    if (head == NULL) {
+        printf("Stack is empty, cannot peek.\n");
+        return -1;
+    }
+    return head->data;
 }
 
 void display(){
-    stack *p;
-    p=head;
-    if(head==NULL){
-        printf("\nstack is Empty\n");
-    }
-    else{
-		printf("Stack is:");
-		for(p=head;p!=NULL;p=p->next){
-			printf("|%d|",p->data);
-		}
+	stack *p = head;
+	int i;
+	if(head == NULL)
+		printf("Stack is empty...\n");
+	else {
+        printf("\nElements in the stack are:\n");
+        while(p!=NULL){
+            printf("|%d|",p->data);
+            p=p->next;
+        }
+        printf("\n");
 	}
-
 }
