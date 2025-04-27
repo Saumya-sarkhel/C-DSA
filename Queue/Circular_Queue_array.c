@@ -37,10 +37,10 @@ void enqueue(int *queue,int max){
 		rear=(rear+1)%max;
 		printf("Enter the data:");
 		scanf("%d",&queue[rear]);
-		if(rear==0 && front==-1) front=0;
+		if(rear==0 && front==-1)
+            front=0;
 	}
 }
-
 
 void dequeue(int *queue,int max){
 	int data;
@@ -64,8 +64,7 @@ void display(int *queue,int max){
 	int i, j;
 	if(rear==-1 && front==-1){
 		printf("Queue is empty...\n");
-  }
-
+    }
 	else{
 		if(front<=rear){
 			i=front;
@@ -74,7 +73,6 @@ void display(int *queue,int max){
 				i++;
 			}
 		}
-
 		else if(rear<front){
 			i=0;
 			while(i<=rear){

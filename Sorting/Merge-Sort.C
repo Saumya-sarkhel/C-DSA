@@ -30,7 +30,7 @@ void mergesort(int a[],int beg,int end){
 }
 
 void merge(int a[],int top,int mid,int bottom){
-	int f,t,s,temp[20],upper,i,k,j;
+	int temp[20],i,k,j;
 	k=top;
 	j=mid+1;
 	i=top;
