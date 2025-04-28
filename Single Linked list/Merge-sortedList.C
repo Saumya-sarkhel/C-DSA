@@ -14,10 +14,10 @@ int main(){
 	head3=NULL;
 	printf("Enter the number of nodes in the first list:");
 	scanf("%d",&n);
-	printf("\nEnter the data in sorted order :\n\n");
+	printf("\nEnter the data in sorted order :-\n");
 	for(i=1;i<=n;i++){
 		p=(node*)malloc(sizeof(node));
-		printf("\nEnter the data:");
+		printf("\nEnter data no %d:", i);
 		scanf("%d",&p->data);
 		p->next=NULL;
 		if(head1==NULL){
@@ -54,7 +54,6 @@ int main(){
 				q=q->next;
 			}
 			q->next=p;
-
 		}
 	}
 	printf("\nThe second list is:\n");
@@ -86,8 +85,6 @@ int main(){
 			k->next=r;
 
 		}
-
-
 	}
 	while(p!=NULL){
 	    r=(node*)malloc(sizeof(node));
@@ -110,7 +107,6 @@ int main(){
 				k=k->next;
         }
         k->next=r;
-
 	}
 	printf("\n\nThe merged list is:\n");
 	for(q=head3;q!=NULL;q=q->next){

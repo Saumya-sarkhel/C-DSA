@@ -437,38 +437,38 @@ struct node* reverse(struct node* head) {
     printf("Reverse successful\n");
     return head;
 }
+/*
+void reverce() { //working code, diff approach
+    struct node *p, *q, *r, *l;
+    int i = 1;
 
-// void reverce() { //working code, diff approach
-//     struct node *p, *q, *r, *l;
-//     int i = 1;
-
-//     if (head == NULL) {
-//         printf("Empty list\n");
-//     } else {
-//         p = head;
-//         while (p->next != NULL) {
-//             q = head;
-//             while (q->next != NULL) {
-//                 r = q;
-//                 q = q->next;
-//             }
-//             if (i == 1) {
-//                 q->next = head;
-//                 r->next = NULL;
-//                 head = q;
-//                 l = q;
-//             } else if (p->next != NULL) {
-//                 q->next = l->next;
-//                 l->next = q;
-//                 l = l->next;
-//                 r->next = NULL;
-//             }
-//             i++;
-//         }
-//     }
-//     printf("\nReverce successful\n");
-//     display();
-// }
+    if (head == NULL) {
+        printf("Empty list\n");
+    } else {
+        p = head;
+        while (p->next != NULL) {
+            q = head;
+            while (q->next != NULL) {
+                r = q;
+                q = q->next;
+            }
+            if (i == 1) {
+                q->next = head;
+                r->next = NULL;
+                head = q;
+                l = q;
+            } else if (p->next != NULL) {
+                q->next = l->next;
+                l->next = q;
+                l = l->next;
+                r->next = NULL;
+            }
+            i++;
+        }
+    }
+    printf("\nReverce successful\n");
+    display();
+}*/
 
 void LinearSearch(){
     struct node *p;
