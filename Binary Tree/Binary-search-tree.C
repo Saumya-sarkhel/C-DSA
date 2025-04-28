@@ -124,7 +124,7 @@ void insert(int x) {
   }
 }
 
-void inorder(Bst *r) {
+void inorder(Bst *r) {      // LeftChild-Data-RightChild (LDR)
   if (r->lchild != NULL)
     inorder(r->lchild);
 
@@ -133,7 +133,7 @@ void inorder(Bst *r) {
   if (r->rchild != NULL)
     inorder(r->rchild);
 }
-void preorder(Bst *r) {
+void preorder(Bst *r) {     // Data-LeftChild-RightChild (DLR)
   printf("%d ", r->data);
 
   if (r->lchild != NULL)
@@ -142,7 +142,7 @@ void preorder(Bst *r) {
   if (r->rchild != NULL)
     preorder(r->rchild);
 }
-void postorder(Bst *r) {
+void postorder(Bst *r) {     // LeftChild-RightChild-Data (LRD)
   if (r->lchild != NULL)
     postorder(r->lchild);
 
@@ -207,36 +207,41 @@ Bst *findMin(Bst *node) {
 Bst *DeleteNode(Bst *root, int value) {
   int s;
   s = search(root, value);
-  if (s == 0) {
-    printf("%d is not present in BST...\n");
-    return root;
-  } else if (value < root->data) {
-    root->lchild = DeleteNode(root->lchild, value);
-  } else if (value > root->data) {
-    root->rchild = DeleteNode(root->rchild, value);
-  } else {
-    // Case 1:leaf node
-    if (root->lchild == NULL && root->rchild == NULL) {
-      free(root);
-      return NULL;
-    }
-    // Case 2:Internal node with one child node
-    else if (root->lchild == NULL) {
-      Bst *temp = root;
-      root = root->rchild;
-      free(temp);
+  if (s == 0){
+      printf("%d is not present in BST...\n");
       return root;
-    } else if (root->rchild == NULL) {
-      Bst *temp = root;
-      root = root->lchild;
-      free(temp);
-      return root;
-    } else // Case 3:Internal node with two child node
-    {
-      Bst *temp = findMin(root->rchild);
-      root->data = temp->data;
-      root->rchild = DeleteNode(root->rchild, temp->data);
-    }
+  }
+  else if (value < root->data){
+      root->lchild = DeleteNode(root->lchild, value);
+  }
+  else if (value > root->data){
+      root->rchild = DeleteNode(root->rchild, value);
+  }
+  else {
+      // Case 1:leaf node
+      if (root->lchild == NULL && root->rchild == NULL){
+          free(root);
+          return NULL;
+      }
+      // Case 2:Internal node with one child node
+      else if (root->lchild == NULL){
+          Bst *temp = root;
+          root = root->rchild;
+          free(temp);
+          return root;
+      }
+      else if (root->rchild == NULL){
+          Bst *temp = root;
+          root = root->lchild;
+          free(temp);
+          return root;
+      }
+      else // Case 3:Internal node with two child node
+      {
+          Bst *temp = findMin(root->rchild);
+          root->data = temp->data;
+          root->rchild = DeleteNode(root->rchild, temp->data);
+      }
   }
   return root;
 }
@@ -244,13 +249,10 @@ Bst *DeleteNode(Bst *root, int value) {
 int search(Bst *root, int value) {
   if (root == NULL)
     return 0;
-
   if (root->data == value)
     return 1;
-
   else if (value < root->data)
     return search(root->lchild, value);
-
   else
     return search(root->rchild, value);
 }
